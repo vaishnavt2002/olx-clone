@@ -1,0 +1,121 @@
+.moreView {
+  margin: 16px 16px 24px;
+  padding: 16px 16px 32px;
+  background-color: #ebeeef;
+  border-radius: 4px;
+}
+
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.heading :first-child {
+  font-size: 24px;
+  color: #002f34;
+}
+
+.heading :last-child {
+  font-size: 14px;
+  color: #002f34;
+}
+
+.recommendations .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+  gap: 20px; 
+}
+
+.moreView .cards {
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.card {
+  margin-right: 15px;
+  padding: 7px;
+  border: 1px solid gray; /* Correct syntax */
+  width: 300px;
+  height: 270px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2%;
+  position: relative;
+}
+
+
+.card .favorite {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.card .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.card .image img {
+  height: 169px;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+.card .content .rate {
+  margin-top: 10px;
+  font-size: 23px;
+  font-weight: bold;
+}
+.card .content .category {
+  font-size: 15px;
+  color: gray;
+}
+.card .content .name {
+  font-size: 15px;
+  color: gray;
+}
+.card .date {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  color: gray;
+}
+
+.recommendations {
+  margin: 16px 19%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recommendations .heading span {
+  font-size: 24px;
+  color: #002f34;
+}
+.loadmore{
+  margin:10px auto;
+  height: 45px;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+.card .favorite {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: white;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  cursor: pointer;
+}

@@ -1,0 +1,34 @@
+.footerParentDiv {
+  width: 100vw;
+}
+.footerParentDiv .content {
+  display: flex;
+  justify-content: space-between;
+  background: #ebeeef;
+  padding: 0 20rem;
+}
+.footerParentDiv .content .heading {
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 1rem 0;
+}
+
+.footerParentDiv .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #002f34;
+  color: whitesmoke;
+}
+
+.footerParentDiv .footer p {
+  margin: 0;
+}
+ul{
+  list-style: none;
+}
+li{
+  color: gray;
+  margin-bottom: 10px;
+}
