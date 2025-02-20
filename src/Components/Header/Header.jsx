@@ -12,11 +12,15 @@ import Chat from "../../assets/Chat";
 import NotificationLogo from "../../assets/NotificationLogo";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({setSearchTerm}) {
   const { user } = useContext(AuthContext);
   const { auth } = useContext(FirebaseContext);
   const placeholders = ["Find car...", "Find bike...", "Find job..."];
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [term,setTerm] = useState('')
+  const searchSubmit = ()=>{
+    setSearchTerm(term)
+  }
   useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
@@ -33,14 +37,14 @@ function Header() {
         </div>
         <div className="placeSearch">
           <Search />
-          <input type="text" />
+          <input type="text"  />
           <Arrow />
         </div>
         <div className="productSearch">
           <div className="input">
-            <input type="text" placeholder={placeholders[placeholderIndex]} />
+            <input type="text" placeholder={placeholders[placeholderIndex]} onChange={(e) => setTerm(e.target.value)}/>
           </div>
-          <div className="searchAction">
+          <div className="searchAction" onClick={searchSubmit}>
             <Search color="#ffffff" />
           </div>
         </div>

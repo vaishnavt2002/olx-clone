@@ -6,7 +6,7 @@ import "./Post.css";
 import { PostContext } from "../../Store/PostContext";
 import { useNavigate } from "react-router-dom";
 
-function Posts() {
+function Posts({searchTerm}) {
   const [products, setProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(4); 
   const { setPostDetails } = useContext(PostContext);
@@ -25,6 +25,10 @@ function Posts() {
     fetchProducts();
   }, []);
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+  );
+
   return (
     <div className="postParentDiv">
       <div className="recommendations">
@@ -32,7 +36,7 @@ function Posts() {
           <span>Fresh recommendations</span>
         </div>
         <div className="cards">
-          {products.slice(0, visibleCount).map((product) => (
+          {filteredProducts.slice(0, visibleCount).map((product) => (
             <div className="card" key={product.id} onClick={()=>{
               setPostDetails(product);
               navigate('/view')

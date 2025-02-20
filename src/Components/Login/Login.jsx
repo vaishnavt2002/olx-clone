@@ -4,21 +4,28 @@ import Logo from '../../olx-logo.png';
 import './Login.css';
 import { FirebaseContext } from '../../Store/FirebaseContext.jsx';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 function Login() {
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
   const {Firebase,auth} = useContext(FirebaseContext)
     const navigate = useNavigate()
   
-  const handleLogin = (e)=>{
+  const handleLogin = async(e)=>{
     e.preventDefault();
-    signInWithEmailAndPassword(auth,email,password).then(()=>{
-      navigate('/')
-    })
-    .catch((error)=>{
-      alert(error.message)
-    })
+    setErrorMessage("")
+    if (!email || !password) {
+      setErrorMessage('Please enter both email and password.');
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/');
+    } catch (error) {
+      setErrorMessage(error.message); // Display Firebase error message
+    }
 
   }
   return (
@@ -47,7 +54,11 @@ function Login() {
           <br />
           <button type='submit'>Login</button>
         </form>
-        <a>Signup</a>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <Link to={"/signup"}>
+        <p>Signup</p>
+        </Link>
       </div>
     </div>
   );
