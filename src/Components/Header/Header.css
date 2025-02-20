@@ -1,11 +1,13 @@
+
 .headerParentDiv {
   padding: 10px;
   background-color: whitesmoke;
   position: fixed;
   width: 100vw;
   z-index: 999;
+  top: 0;
+  left: 0;
 }
-
 .headerChildDiv {
   width: 100%;
   display: flex;

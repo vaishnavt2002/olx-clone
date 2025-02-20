@@ -5,7 +5,7 @@ import View from '../Components/View/View'
 
 function ViewPost(props) {
     return (
-        <div>
+        <div className='homeParentDiv'>
             <Header />
             <View/>
         </div>
